@@ -36,8 +36,8 @@
 	* Good to comment these considerations:  `// This hits the database, don't enumerate more than once!`
 *  Minimize the number of calls:  collection.Where(foo).Where(bar) is slower than collection.Where(foo && bar)
 *  When you want to check if a collection is under/equal to a certain size:
-	* `collection.Take(N).Count() < N;  collection.Take(N+1).Count() == 1;  //avoids iterating over the entire collection using just Count()`
-    * 
+	* `collection.Count() < N` //iterates over the entire collection, no matter how small N
+    * `collection.Take(N).Count() < N;  collection.Take(N+1).Count() == 1;  //avoids iterating over the entire collection using just Count()`
 
 ### Reflection
 * Reflection can be surprisingly slow, avoid it in frequently hit endpoints

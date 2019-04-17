@@ -76,23 +76,13 @@ namespace techtalk
         }
 
         [Benchmark]
-        // 1,800us 0B
-        public float LinkedListForEach()
-        {
-            float sum = 0.0f;
-            foreach (var item in linkedListClass)
-            {
-                sum += item.Qty * item.Price;
-            }
-            return sum;
-        }
-
-        [Benchmark]
         // 2,600us 40B
         public float ListLinq()
         {
             return listClass.Sum(item => item.Qty * item.Price);
         }
+      
+       
         [Benchmark]
         // 2,000us 40B
         public float IEnumerableListForEach()
