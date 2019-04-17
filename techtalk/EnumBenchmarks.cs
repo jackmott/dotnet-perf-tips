@@ -4,7 +4,7 @@ using BenchmarkDotNet.Attributes;
 namespace techtalk
 {
 
-    enum TestEnum { ALPHA, BETA, GAMMA, DELTA };
+    enum TestEnum { ALPHA, BETA, GAMMA, DELTA, UHOH};
 
     [SimpleJob(launchCount: 1, warmupCount: 1, targetCount: 5)]
     [MemoryDiagnoser]

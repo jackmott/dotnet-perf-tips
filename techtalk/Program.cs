@@ -10,7 +10,7 @@ namespace techtalk
         {
             //var summary = BenchmarkRunner.Run<SumBenchmarks>();
             //var summary = BenchmarkRunner.Run<EnumBenchmarks>();
-            //var summary = BenchmarkRunner.Run<LinqTips>();
+            var summary = BenchmarkRunner.Run<LinqTips>();
             Console.ReadLine();
 
         }

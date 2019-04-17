@@ -28,6 +28,7 @@ namespace techtalk
             this.Price = Price;
         }
     }
+
     public struct ItemsStruct
     {
         public float[] prices;
@@ -68,6 +69,7 @@ namespace techtalk
                 items.qtys[i] = qty;
             }
         }
+
         [Benchmark]
         // 3,200us 48B
         public float LinkedListLinq()
@@ -75,6 +77,7 @@ namespace techtalk
             return linkedListClass.Sum(item => item.Qty * item.Price);
         }
 
+      
         [Benchmark]
         // 2,600us 40B
         public float ListLinq()
@@ -95,6 +98,7 @@ namespace techtalk
             }
             return sum;
         }
+
         [Benchmark]
         // 1,300us 0B
         public float ListForEach()
@@ -175,7 +179,7 @@ namespace techtalk
             for (int i = 0; i < a.Length; i++)
             {
                 var item = a[i];
-                sum += item.Qty * item.Price;
+                sum += item.Qty * item.Price;                
             }
             return sum;
         }

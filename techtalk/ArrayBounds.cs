@@ -6,7 +6,7 @@ namespace techtalk
 
         public void arraybounds()
         {
-            var arr = new int[100];
+            var arr = new int[100];            
 
             //Array bounds probably not elided
             for (int i = 0; i < 100; i++)

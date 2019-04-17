@@ -124,13 +124,14 @@ namespace techtalk
                                 && v.Longitude > minLong
                                 && v.Longitude < maxLong)
                     .Select(v => (v, Maths.GetDistanceInMiles(v.Latitude, v.Longitude, latitude, longitude)))
+                    .Where(vendorAndDistance => vendorAndDistance.Item2 <= radius)
                     .OrderBy(vendorAndDistance => vendorAndDistance.Item2);
         }
 
 
     }
 
-    [SimpleJob(launchCount: 1, warmupCount: 1, targetCount: 5)]
+    [SimpleJob(launchCount: 1, warmupCount: 1, targetCount: 3)]
     [MemoryDiagnoser]
     public class LinqTips
     {
@@ -165,7 +166,7 @@ namespace techtalk
         }
 
 
-
+        /*
         [Benchmark]
         public List<SearchResult> WithEnumerableFilter()
         {
@@ -177,7 +178,7 @@ namespace techtalk
                     .Select(v => CreateSearchResult(v, 5.0, 5.0))
                     .ToList();
         }
-
+        
         [Benchmark]
         public List<SearchResult> WithEnumerableFilterOneWhere()
         {
@@ -189,7 +190,7 @@ namespace techtalk
                     .Select(v => CreateSearchResult(v, 5.0, 5.0))
                     .ToList();
         }
-
+        
         [Benchmark]
         public List<SearchResult> WithEnumerableFilterOneWhereDistance()
         {
@@ -201,6 +202,6 @@ namespace techtalk
                     .Select(v => new SearchResult(v.Item1, v.Item2))
                     .ToList();
         }
-
+        */
     }
 }
